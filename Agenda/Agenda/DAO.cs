@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Agenda
 {
@@ -16,7 +17,7 @@ namespace Agenda
 
 		public DAO()
 		{
-			string strConn = "Data Source =.;Initial Catalog=Agenda;Integrated Security=True";
+			string strConn = ConfigurationManager.ConnectionStrings["DaoConnectionString"].ConnectionString;
 			connection = new SqlConnection(strConn);
 			connection.Open();
 		}
