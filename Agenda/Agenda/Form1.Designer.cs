@@ -33,8 +33,6 @@
 			this.dgvAgenda = new System.Windows.Forms.DataGridView();
 			this.txtEmail = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
-			this.txtTelefone = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
 			this.txtCelular = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.txtEndereco = new System.Windows.Forms.TextBox();
@@ -49,7 +47,6 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
 			this.textBox5 = new System.Windows.Forms.TextBox();
 			this.btnContato = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
@@ -73,7 +70,7 @@
 			this.dgvAgenda.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvAgenda.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.dgvAgenda.Location = new System.Drawing.Point(20, 366);
+			this.dgvAgenda.Location = new System.Drawing.Point(20, 330);
 			this.dgvAgenda.Name = "dgvAgenda";
 			this.dgvAgenda.ReadOnly = true;
 			this.dgvAgenda.Size = new System.Drawing.Size(543, 147);
@@ -83,7 +80,7 @@
 			// txtEmail
 			// 
 			this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.txtEmail.Location = new System.Drawing.Point(131, 253);
+			this.txtEmail.Location = new System.Drawing.Point(131, 217);
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(428, 20);
 			this.txtEmail.TabIndex = 28;
@@ -93,30 +90,11 @@
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label7.ForeColor = System.Drawing.Color.Black;
-			this.label7.Location = new System.Drawing.Point(19, 256);
+			this.label7.Location = new System.Drawing.Point(19, 220);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(37, 13);
 			this.label7.TabIndex = 27;
 			this.label7.Text = "Email";
-			// 
-			// txtTelefone
-			// 
-			this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.txtTelefone.Location = new System.Drawing.Point(131, 216);
-			this.txtTelefone.Name = "txtTelefone";
-			this.txtTelefone.Size = new System.Drawing.Size(235, 20);
-			this.txtTelefone.TabIndex = 26;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.ForeColor = System.Drawing.Color.Black;
-			this.label6.Location = new System.Drawing.Point(19, 219);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(57, 13);
-			this.label6.TabIndex = 25;
-			this.label6.Text = "Telefone";
 			// 
 			// txtCelular
 			// 
@@ -182,7 +160,7 @@
 			// 
 			this.btnLimpar.BackColor = System.Drawing.SystemColors.Control;
 			this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnLimpar.Location = new System.Drawing.Point(254, 324);
+			this.btnLimpar.Location = new System.Drawing.Point(254, 288);
 			this.btnLimpar.Name = "btnLimpar";
 			this.btnLimpar.Size = new System.Drawing.Size(75, 23);
 			this.btnLimpar.TabIndex = 33;
@@ -194,7 +172,7 @@
 			// 
 			this.btnDeletar.BackColor = System.Drawing.SystemColors.Control;
 			this.btnDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.btnDeletar.Location = new System.Drawing.Point(254, 295);
+			this.btnDeletar.Location = new System.Drawing.Point(254, 259);
 			this.btnDeletar.Name = "btnDeletar";
 			this.btnDeletar.Size = new System.Drawing.Size(75, 23);
 			this.btnDeletar.TabIndex = 32;
@@ -207,7 +185,7 @@
 			this.btnAtualizar.BackColor = System.Drawing.SystemColors.Control;
 			this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.btnAtualizar.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.btnAtualizar.Location = new System.Drawing.Point(173, 324);
+			this.btnAtualizar.Location = new System.Drawing.Point(173, 288);
 			this.btnAtualizar.Name = "btnAtualizar";
 			this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
 			this.btnAtualizar.TabIndex = 31;
@@ -219,7 +197,7 @@
 			// 
 			this.btnSalvar.BackColor = System.Drawing.SystemColors.Control;
 			this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.btnSalvar.Location = new System.Drawing.Point(172, 295);
+			this.btnSalvar.Location = new System.Drawing.Point(172, 259);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(75, 23);
 			this.btnSalvar.TabIndex = 30;
@@ -231,7 +209,7 @@
 			// 
 			this.btnSair.BackColor = System.Drawing.SystemColors.Control;
 			this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.btnSair.Location = new System.Drawing.Point(335, 295);
+			this.btnSair.Location = new System.Drawing.Point(335, 259);
 			this.btnSair.Name = "btnSair";
 			this.btnSair.Size = new System.Drawing.Size(75, 52);
 			this.btnSair.TabIndex = 34;
@@ -270,22 +248,12 @@
 			this.textBox3.Size = new System.Drawing.Size(235, 13);
 			this.textBox3.TabIndex = 24;
 			// 
-			// textBox4
-			// 
-			this.textBox4.BackColor = System.Drawing.SystemColors.ButtonShadow;
-			this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.textBox4.Location = new System.Drawing.Point(137, 228);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(235, 13);
-			this.textBox4.TabIndex = 26;
-			// 
 			// textBox5
 			// 
 			this.textBox5.BackColor = System.Drawing.SystemColors.ButtonShadow;
 			this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.textBox5.Location = new System.Drawing.Point(137, 265);
+			this.textBox5.Location = new System.Drawing.Point(137, 229);
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(428, 13);
 			this.textBox5.TabIndex = 28;
@@ -304,7 +272,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(583, 525);
+			this.ClientSize = new System.Drawing.Size(583, 488);
 			this.Controls.Add(this.btnContato);
 			this.Controls.Add(this.btnSair);
 			this.Controls.Add(this.btnLimpar);
@@ -314,8 +282,6 @@
 			this.Controls.Add(this.dgvAgenda);
 			this.Controls.Add(this.txtEmail);
 			this.Controls.Add(this.label7);
-			this.Controls.Add(this.txtTelefone);
-			this.Controls.Add(this.label6);
 			this.Controls.Add(this.txtCelular);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.txtEndereco);
@@ -326,7 +292,6 @@
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox4);
 			this.Controls.Add(this.textBox5);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Form1";
@@ -343,8 +308,6 @@
 		private System.Windows.Forms.DataGridView dgvAgenda;
 		private System.Windows.Forms.TextBox txtEmail;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.TextBox txtTelefone;
-		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox txtCelular;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox txtEndereco;
@@ -359,7 +322,6 @@
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox4;
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.Button btnContato;
 	}

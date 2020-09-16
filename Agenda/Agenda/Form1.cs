@@ -53,7 +53,6 @@ namespace Agenda
 			txtNome.Text = "";
 			txtEndereco.Text = "";
 			txtCelular.Text = "";
-			txtTelefone.Text = "";
 			txtEmail.Text = "";
 			ID = 0;
 		}
@@ -64,7 +63,6 @@ namespace Agenda
 			txtNome.Text = "";
 			txtEndereco.Text = "";
 			txtCelular.Text = "";
-			txtTelefone.Text = "";
 			txtEmail.Text = "";
 			txtNome.Focus();
 		}
@@ -73,7 +71,7 @@ namespace Agenda
 		{
 			DAO dao = new DAO();
 
-			if (txtNome.Text != "" && txtEndereco.Text != "" && txtCelular.Text != "" && txtTelefone.Text != "" && txtEmail.Text != "")
+			if (txtNome.Text != "" && txtEndereco.Text != "" && txtCelular.Text != "" && txtEmail.Text != "")
 			{
 				try
 				{
@@ -82,7 +80,6 @@ namespace Agenda
 						Nome = txtNome.Text.Trim().ToUpper(),
 						Endereço = txtEndereco.Text.Trim().ToUpper(),
 						Celular = txtCelular.Text.Trim().ToUpper(),
-						Telefone = txtTelefone.Text.Trim().ToUpper(),
 						Email = txtEmail.Text.Trim().ToLower()
 					};
 
@@ -111,7 +108,7 @@ namespace Agenda
 		{
 			DAO dao = new DAO();
 
-			if (txtNome.Text != "" && txtEndereco.Text != "" && txtCelular.Text != "" && txtTelefone.Text != "" && txtEmail.Text != "")
+			if (txtNome.Text != "" && txtEndereco.Text != "" && txtCelular.Text != "" && txtEmail.Text != "")
 			{
 				try
 				{
@@ -121,7 +118,6 @@ namespace Agenda
 						Nome = txtNome.Text.Trim().ToUpper(),
 						Endereço = txtEndereco.Text.Trim().ToUpper(),
 						Celular = txtCelular.Text.Trim().ToUpper(),
-						Telefone = txtTelefone.Text.Trim().ToUpper(),
 						Email = txtEmail.Text.Trim().ToLower()
 					};
 
@@ -198,8 +194,7 @@ namespace Agenda
 				txtNome.Text = dgvAgenda.Rows[e.RowIndex].Cells[1].Value.ToString();
 				txtEndereco.Text = dgvAgenda.Rows[e.RowIndex].Cells[2].Value.ToString();
 				txtCelular.Text = dgvAgenda.Rows[e.RowIndex].Cells[3].Value.ToString();
-				txtTelefone.Text = dgvAgenda.Rows[e.RowIndex].Cells[4].Value.ToString();
-				txtEmail.Text = dgvAgenda.Rows[e.RowIndex].Cells[5].Value.ToString();
+				txtEmail.Text = dgvAgenda.Rows[e.RowIndex].Cells[4].Value.ToString();
 			}
 			catch { }
 		}

@@ -39,14 +39,13 @@ namespace Agenda
 
 		public void Insert(Contato contato)
 		{
-			cmd = new SqlCommand("INSERT INTO Contatos(nome,endereco,celular,telefone,email) " +
-								"VALUES(@nome,@endereco,@celular,@telefone,@email)",
+			cmd = new SqlCommand("INSERT INTO Contatos(nome,endereco,celular,email) " +
+								"VALUES(@nome,@endereco,@celular,@email)",
 								connection);
 			
 			cmd.Parameters.AddWithValue("@nome", contato.Nome);
 			cmd.Parameters.AddWithValue("@endereco", contato.Endereço);
 			cmd.Parameters.AddWithValue("@celular", contato.Celular);
-			cmd.Parameters.AddWithValue("@telefone", contato.Telefone);
 			cmd.Parameters.AddWithValue("@email", contato.Email);
 
 			cmd.ExecuteNonQuery();
@@ -55,7 +54,7 @@ namespace Agenda
 		public void Update(Contato contato)
 		{
 			cmd = new SqlCommand("UPDATE Contatos " +
-								"SET nome=@nome, endereco=@endereco, celular=@celular,telefone=@telefone,email=@email " +
+								"SET nome=@nome, endereco=@endereco, celular=@celular,email=@email " +
 								"WHERE id=@id",
 								connection);
 			
@@ -63,7 +62,6 @@ namespace Agenda
 			cmd.Parameters.AddWithValue("@nome", contato.Nome);
 			cmd.Parameters.AddWithValue("@endereco", contato.Endereço);
 			cmd.Parameters.AddWithValue("@celular", contato.Celular);
-			cmd.Parameters.AddWithValue("@telefone", contato.Telefone);
 			cmd.Parameters.AddWithValue("@email", contato.Email);
 
 			cmd.ExecuteNonQuery();
