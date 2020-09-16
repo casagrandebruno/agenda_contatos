@@ -166,7 +166,7 @@
 			// 
 			// btnNovo
 			// 
-			this.btnNovo.BackColor = System.Drawing.Color.Aqua;
+			this.btnNovo.BackColor = System.Drawing.Color.White;
 			this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnNovo.Location = new System.Drawing.Point(725, 37);
 			this.btnNovo.Name = "btnNovo";
@@ -178,7 +178,7 @@
 			// 
 			// btnDeletar
 			// 
-			this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.btnDeletar.BackColor = System.Drawing.Color.Red;
 			this.btnDeletar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnDeletar.Location = new System.Drawing.Point(725, 259);
 			this.btnDeletar.Name = "btnDeletar";
@@ -190,7 +190,7 @@
 			// 
 			// btnAtualizar
 			// 
-			this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.btnAtualizar.BackColor = System.Drawing.Color.White;
 			this.btnAtualizar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnAtualizar.Location = new System.Drawing.Point(725, 185);
 			this.btnAtualizar.Name = "btnAtualizar";
@@ -202,7 +202,7 @@
 			// 
 			// btnSalvar
 			// 
-			this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			this.btnSalvar.BackColor = System.Drawing.Color.White;
 			this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSalvar.Location = new System.Drawing.Point(725, 111);
 			this.btnSalvar.Name = "btnSalvar";
