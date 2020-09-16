@@ -1,0 +1,10 @@
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\bin\Debug\Agenda.exe.config
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\bin\Debug\Agenda.exe
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\bin\Debug\Agenda.pdb
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\obj\Debug\Agenda.csprojAssemblyReference.cache
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\obj\Debug\Agenda.Form1.resources
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\obj\Debug\Agenda.Properties.Resources.resources
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\obj\Debug\Agenda.csproj.GenerateResource.cache
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\obj\Debug\Agenda.csproj.CoreCompileInputs.cache
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\obj\Debug\Agenda.exe
+C:\Users\bruno\OneDrive\Documentos\Testes\Partner\agenda_contatos\Agenda\Agenda\obj\Debug\Agenda.pdb
