@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Agenda
 {
@@ -78,11 +79,11 @@ namespace Agenda
 				{
 					Contato contato = new Contato()
 					{
-						Nome = txtNome.Text.ToUpper(),
-						Endereço = txtEndereco.Text.ToUpper(),
-						Celular = txtCelular.Text.ToUpper(),
-						Telefone = txtTelefone.Text.ToUpper(),
-						Email = txtEmail.Text.ToLower()
+						Nome = txtNome.Text.Trim().ToUpper(),
+						Endereço = txtEndereco.Text.Trim().ToUpper(),
+						Celular = txtCelular.Text.Trim().ToUpper(),
+						Telefone = txtTelefone.Text.Trim().ToUpper(),
+						Email = txtEmail.Text.Trim().ToLower()
 					};
 
 					dao.Insert(contato);
@@ -117,11 +118,11 @@ namespace Agenda
 					Contato contato = new Contato()
 					{
 						IdContato = ID,
-						Nome = txtNome.Text.ToUpper(),
-						Endereço = txtEndereco.Text.ToUpper(),
-						Celular = txtCelular.Text.ToUpper(),
-						Telefone = txtTelefone.Text.ToUpper(),
-						Email = txtEmail.Text.ToLower()
+						Nome = txtNome.Text.Trim().ToUpper(),
+						Endereço = txtEndereco.Text.Trim().ToUpper(),
+						Celular = txtCelular.Text.Trim().ToUpper(),
+						Telefone = txtTelefone.Text.Trim().ToUpper(),
+						Email = txtEmail.Text.Trim().ToLower()
 					};
 
 					dao.Update(contato);
@@ -201,6 +202,15 @@ namespace Agenda
 				txtEmail.Text = dgvAgenda.Rows[e.RowIndex].Cells[5].Value.ToString();
 			}
 			catch { }
+		}
+
+		private void btnContato_Click(object sender, EventArgs e)
+		{
+			string strUrl = "https://wa.link/swyq3x";
+			Process proc = new Process();
+			ProcessStartInfo startInfo = new ProcessStartInfo(strUrl);
+			proc.StartInfo = startInfo;
+			proc.Start();
 		}
 	}
 
