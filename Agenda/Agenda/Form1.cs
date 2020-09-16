@@ -18,6 +18,14 @@ namespace Agenda
 		SqlDataAdapter adapt;
 		int ID = 0;
 
+		[STAThread]
+		public static void Main()
+		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(new Form1());
+		}
+
 		public Form1()
 		{
 			InitializeComponent();
@@ -190,4 +198,5 @@ namespace Agenda
 			catch { }
 		}
 	}
+
 }
