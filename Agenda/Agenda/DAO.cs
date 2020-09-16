@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace Agenda
+{
+	public class DAO
+	{
+		private SqlConnection connection;
+		private SqlDataAdapter adapt;
+		private SqlCommand cmd;
+
+		public DAO()
+		{
+			string strConn = "Data Source =.;Initial Catalog=Agenda;Integrated Security=True";
+			connection = new SqlConnection(strConn);
+			connection.Open();
+		}
+
+		public void Dispose()
+		{
+			connection.Close();
+		}
+
+		public DataTable List()
+		{
+			DataTable dt = new DataTable();
+			cmd = new SqlCommand("SELECT * from Contatos", connection);
+			adapt = new SqlDataAdapter(cmd);
+
+			adapt.Fill(dt);
+			return dt;
+		}
+
+		public void Insert(Contato contato)
+		{
+			cmd = new SqlCommand("INSERT INTO Contatos(nome,endereco,celular,telefone,email) " +
+								"VALUES(@nome,@endereco,@celular,@telefone,@email)",
+								connection);
+			
+			cmd.Parameters.AddWithValue("@nome", contato.Nome);
+			cmd.Parameters.AddWithValue("@endereco", contato.Endereço);
+			cmd.Parameters.AddWithValue("@celular", contato.Celular);
+			cmd.Parameters.AddWithValue("@telefone", contato.Telefone);
+			cmd.Parameters.AddWithValue("@email", contato.Email);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		public void Update(Contato contato)
+		{
+			cmd = new SqlCommand("UPDATE Contatos " +
+								"SET nome=@nome, endereco=@endereco, celular=@celular,telefone=@telefone,email=@email " +
+								"WHERE id=@id",
+								connection);
+			
+			cmd.Parameters.AddWithValue("@id", contato.IdContato);
+			cmd.Parameters.AddWithValue("@nome", contato.Nome);
+			cmd.Parameters.AddWithValue("@endereco", contato.Endereço);
+			cmd.Parameters.AddWithValue("@celular", contato.Celular);
+			cmd.Parameters.AddWithValue("@telefone", contato.Telefone);
+			cmd.Parameters.AddWithValue("@email", contato.Email);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		public void Delete(int ID)
+		{
+			cmd = new SqlCommand("DELETE Contatos WHERE id=@id", connection);
+
+			cmd.Parameters.AddWithValue("@id", ID);
+
+			cmd.ExecuteNonQuery();
+		}
+	}
+}

@@ -13,9 +13,6 @@ namespace Agenda
 {
 	public partial class Form1 : Form
 	{
-		SqlConnection con = new SqlConnection("Data Source =.;Initial Catalog=Agenda;Integrated Security=True");
-		SqlCommand cmd;
-		SqlDataAdapter adapt;
 		int ID = 0;
 
 		[STAThread]
@@ -34,13 +31,11 @@ namespace Agenda
 
 		private void ExibirDados()
 		{
+			DAO dao = new DAO();
+
 			try
 			{
-				con.Open();
-				DataTable dt = new DataTable();
-				adapt = new SqlDataAdapter("SELECT * FROM Contatos", con);
-				adapt.Fill(dt);
-				dgvAgenda.DataSource = dt;
+				dgvAgenda.DataSource = dao.List();
 			}
 			catch (Exception)
 			{
@@ -48,7 +43,7 @@ namespace Agenda
 			}
 			finally
 			{
-				con.Close();
+				dao.Dispose();
 			}
 		}
 
@@ -75,19 +70,24 @@ namespace Agenda
 
 		private void btnSalvar_Click(object sender, EventArgs e)
 		{
+			DAO dao = new DAO();
+
 			if (txtNome.Text != "" && txtEndereco.Text != "" && txtCelular.Text != "" && txtTelefone.Text != "" && txtEmail.Text != "")
 			{
 				try
 				{
-					cmd = new SqlCommand("INSERT INTO Contatos(nome,endereco,celular,telefone,email) VALUES(@nome,@endereco,@celular,@telefone,@email)", con);
-					con.Open();
-					cmd.Parameters.AddWithValue("@nome", txtNome.Text.ToUpper());
-					cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text.ToUpper());
-					cmd.Parameters.AddWithValue("@celular", txtCelular.Text.ToUpper());
-					cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text.ToUpper());
-					cmd.Parameters.AddWithValue("@email", txtEmail.Text.ToLower());
-					cmd.ExecuteNonQuery();
-					MessageBox.Show("Registro incluído com sucesso...");
+					Contato contato = new Contato()
+					{
+						Nome = txtNome.Text.ToUpper(),
+						Endereço = txtEndereco.Text.ToUpper(),
+						Celular = txtCelular.Text.ToUpper(),
+						Telefone = txtTelefone.Text.ToUpper(),
+						Email = txtEmail.Text.ToLower()
+					};
+
+					dao.Insert(contato);
+
+					MessageBox.Show("Registro incluído com sucesso!");
 				}
 				catch (Exception ex)
 				{
@@ -95,7 +95,7 @@ namespace Agenda
 				}
 				finally
 				{
-					con.Close();
+					dao.Dispose();
 					ExibirDados();
 					LimparDados();
 				}
@@ -108,20 +108,25 @@ namespace Agenda
 
 		private void btnAtualizar_Click(object sender, EventArgs e)
 		{
+			DAO dao = new DAO();
+
 			if (txtNome.Text != "" && txtEndereco.Text != "" && txtCelular.Text != "" && txtTelefone.Text != "" && txtEmail.Text != "")
 			{
 				try
 				{
-					cmd = new SqlCommand("UPDATE Contatos SET nome=@nome, endereco=@endereco, celular=@celular,telefone=@telefone,email=@email WHERE id=@id", con);
-					con.Open();
-					cmd.Parameters.AddWithValue("@id", ID);
-					cmd.Parameters.AddWithValue("@nome", txtNome.Text.ToUpper());
-					cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text.ToUpper());
-					cmd.Parameters.AddWithValue("@celular", txtCelular.Text.ToUpper());
-					cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text.ToUpper());
-					cmd.Parameters.AddWithValue("@email", txtEmail.Text.ToLower());
-					cmd.ExecuteNonQuery();
-					MessageBox.Show("Registro atualizado com sucesso...");
+					Contato contato = new Contato()
+					{
+						IdContato = ID,
+						Nome = txtNome.Text.ToUpper(),
+						Endereço = txtEndereco.Text.ToUpper(),
+						Celular = txtCelular.Text.ToUpper(),
+						Telefone = txtTelefone.Text.ToUpper(),
+						Email = txtEmail.Text.ToLower()
+					};
+
+					dao.Update(contato);
+					
+					MessageBox.Show("Registro atualizado com sucesso!");
 				}
 				catch (Exception ex)
 				{
@@ -129,7 +134,7 @@ namespace Agenda
 				}
 				finally
 				{
-					con.Close();
+					dao.Dispose();
 					ExibirDados();
 					LimparDados();
 				}
@@ -142,17 +147,17 @@ namespace Agenda
 
 		private void btnDeletar_Click(object sender, EventArgs e)
 		{
+			DAO dao = new DAO();
+
 			if (ID != 0)
 			{
-				if (MessageBox.Show("Deseja Deletar este registro ?", "Agenda", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				if (MessageBox.Show("Deseja apagar este registro?", "Agenda", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
 					try
 					{
-						cmd = new SqlCommand("DELETE Contatos WHERE id=@id", con);
-						con.Open();
-						cmd.Parameters.AddWithValue("@id", ID);
-						cmd.ExecuteNonQuery();
-						MessageBox.Show("registro deletado com sucesso...!");
+						dao.Delete(ID);
+
+						MessageBox.Show("Registro apagado com sucesso!");
 					}
 					catch (Exception ex)
 					{
@@ -160,7 +165,7 @@ namespace Agenda
 					}
 					finally
 					{
-						con.Close();
+						dao.Dispose();
 						ExibirDados();
 						LimparDados();
 					}
@@ -168,13 +173,13 @@ namespace Agenda
 			}
 			else
 			{
-				MessageBox.Show("Selecione um registro para deletar");
+				MessageBox.Show("Selecione um registro para apagar");
 			}
 		}
 
 		private void btnSair_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show("Deseja sair do programa ?", "Agenda", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if (MessageBox.Show("Deseja sair da Agenda?", "Agenda", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				Application.Exit();
 			}
