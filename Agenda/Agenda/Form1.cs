@@ -206,11 +206,21 @@ namespace Agenda
 
 		private void btnContato_Click(object sender, EventArgs e)
 		{
-			string strUrl = "https://wa.link/swyq3x";
-			Process proc = new Process();
-			ProcessStartInfo startInfo = new ProcessStartInfo(strUrl);
-			proc.StartInfo = startInfo;
-			proc.Start();
+			string strUrl; 
+
+			if (txtCelular.Text != "" && txtCelular.Text.Trim().Length == 11)
+			{
+				strUrl = "http://api.whatsapp.com/send?1=pt_BR&phone=55" + txtCelular.Text;
+
+				Process proc = new Process();
+				ProcessStartInfo startInfo = new ProcessStartInfo(strUrl);
+				proc.StartInfo = startInfo;
+				proc.Start();
+			}
+			else
+			{
+				MessageBox.Show("Formato de telefone não aceito");
+			}
 		}
 	}
 

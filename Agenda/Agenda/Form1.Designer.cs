@@ -122,6 +122,7 @@
 			// 
 			this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.txtCelular.Location = new System.Drawing.Point(131, 179);
+			this.txtCelular.MaxLength = 11;
 			this.txtCelular.Name = "txtCelular";
 			this.txtCelular.Size = new System.Drawing.Size(235, 20);
 			this.txtCelular.TabIndex = 24;
@@ -291,11 +292,11 @@
 			// 
 			// btnContato
 			// 
-			this.btnContato.Location = new System.Drawing.Point(395, 177);
+			this.btnContato.Location = new System.Drawing.Point(484, 182);
 			this.btnContato.Name = "btnContato";
 			this.btnContato.Size = new System.Drawing.Size(75, 23);
 			this.btnContato.TabIndex = 35;
-			this.btnContato.Text = "Contato";
+			this.btnContato.Text = "WhatsApp";
 			this.btnContato.UseVisualStyleBackColor = true;
 			this.btnContato.Click += new System.EventHandler(this.btnContato_Click);
 			// 
