@@ -37,6 +37,32 @@ namespace Agenda
 			return dt;
 		}
 
+		public DataTable List(string where, string op)
+		{
+			DataTable dt = new DataTable();
+
+			if (op == "nome")
+			{
+				cmd = new SqlCommand($"SELECT * from Contatos where nome like \'%{where}%\'", connection);
+			}
+
+			if (op == "telefone")
+			{
+				cmd = new SqlCommand($"SELECT * from Contatos where celular like \'%{where}%\'", connection);
+			}
+
+			if (op == "email")
+			{
+
+				cmd = new SqlCommand($"SELECT * from Contatos where email like \'%{where}%\'", connection);
+			}
+
+			adapt = new SqlDataAdapter(cmd);
+
+			adapt.Fill(dt);
+			return dt;
+		}
+
 		public void Insert(Contato contato)
 		{
 			cmd = new SqlCommand("INSERT INTO Contatos(nome,endereco,celular,email) " +

@@ -16,6 +16,12 @@ namespace Agenda
 	{
 		int ID = 0;
 
+		public Form1()
+		{
+			InitializeComponent();
+			ExibirDados();
+		}
+
 		[STAThread]
 		public static void Main()
 		{
@@ -24,11 +30,6 @@ namespace Agenda
 			Application.Run(new Form1());
 		}
 
-		public Form1()
-		{
-			InitializeComponent();
-			ExibirDados();
-		}
 
 		private void ExibirDados()
 		{
@@ -186,19 +187,6 @@ namespace Agenda
 			}
 		}
 
-		private void dgvAgenda_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-			try
-			{
-				ID = Convert.ToInt32(dgvAgenda.Rows[e.RowIndex].Cells[0].Value.ToString());
-				txtNome.Text = dgvAgenda.Rows[e.RowIndex].Cells[1].Value.ToString();
-				txtEndereco.Text = dgvAgenda.Rows[e.RowIndex].Cells[2].Value.ToString();
-				msktxtCelular.Text = dgvAgenda.Rows[e.RowIndex].Cells[3].Value.ToString();
-				txtEmail.Text = dgvAgenda.Rows[e.RowIndex].Cells[4].Value.ToString();
-			}
-			catch { }
-		}
-
 		private void btnContato_Click(object sender, EventArgs e)
 		{
 			string strUrl;
@@ -220,14 +208,105 @@ namespace Agenda
 			}
 		}
 
+		
 		private void txtEmail_Leave(object sender, EventArgs e)
 		{
-			if ((txtNome.Text != "" &&	txtEndereco.Text != "" && msktxtCelular.Text != "") && !txtEmail.Text.Contains('@') && !(txtEmail.Text.EndsWith(".com") || txtEmail.Text.EndsWith(".com.br")))
+			if ((txtNome.Text != "" && txtEndereco.Text != "" && msktxtCelular.Text != "") && !txtEmail.Text.Contains('@') && !(txtEmail.Text.EndsWith(".com") || txtEmail.Text.EndsWith(".com.br")))
 			{
 				MessageBox.Show("O e-mail inserido é inválido");
 				txtEmail.Text = "";
 				txtEmail.Focus();
 			}
+		}
+
+
+		private void dgvAgenda_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			try
+			{
+				ID = Convert.ToInt32(dgvAgenda.Rows[e.RowIndex].Cells[0].Value.ToString());
+				txtNome.Text = dgvAgenda.Rows[e.RowIndex].Cells[1].Value.ToString();
+				txtEndereco.Text = dgvAgenda.Rows[e.RowIndex].Cells[2].Value.ToString();
+				msktxtCelular.Text = dgvAgenda.Rows[e.RowIndex].Cells[3].Value.ToString();
+				txtEmail.Text = dgvAgenda.Rows[e.RowIndex].Cells[4].Value.ToString();
+			}
+			catch { }
+		}
+
+		private void btnBuscaNome_Click(object sender, EventArgs e)
+		{
+			DAO dao = new DAO();
+
+			if (txtBusca.Text != "")
+			{
+				try
+				{
+					dgvAgenda.DataSource = dao.List(txtBusca.Text.Trim(),"nome");
+				}
+				catch (Exception)
+				{
+					throw;
+				}
+				finally
+				{
+					dao.Dispose();
+				}
+			}
+
+			btnLimparFiltros.Visible = true;
+		}
+
+		private void btnBuscaTelefone_Click(object sender, EventArgs e)
+		{
+			DAO dao = new DAO();
+
+			if (txtBusca.Text != "")
+			{
+				try
+				{
+					dgvAgenda.DataSource = dao.List(txtBusca.Text.Trim(), "telefone");
+				}
+				catch (Exception)
+				{
+					throw;
+				}
+				finally
+				{
+					dao.Dispose();
+				}
+			}
+
+			btnLimparFiltros.Visible = true;
+		}
+
+		private void btnBuscaEmail_Click(object sender, EventArgs e)
+		{
+			DAO dao = new DAO();
+
+			if (txtBusca.Text != "")
+			{
+				try
+				{
+					dgvAgenda.DataSource = dao.List(txtBusca.Text.Trim(), "email");
+				}
+				catch (Exception)
+				{
+					throw;
+				}
+				finally
+				{
+					dao.Dispose();
+				}
+			}
+
+			btnLimparFiltros.Visible = true;
+		}
+
+		private void btnLimparFiltros_Click(object sender, EventArgs e)
+		{
+			ExibirDados();
+			txtBusca.Text = "";
+			btnLimparFiltros.Visible = false;
 		}
 	}
 
