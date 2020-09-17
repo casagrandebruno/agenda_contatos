@@ -33,7 +33,6 @@
 			this.dgvAgenda = new System.Windows.Forms.DataGridView();
 			this.txtEmail = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
-			this.txtCelular = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.txtEndereco = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.textBox5 = new System.Windows.Forms.TextBox();
 			this.btnContato = new System.Windows.Forms.Button();
+			this.msktxtCelular = new System.Windows.Forms.MaskedTextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -74,7 +74,7 @@
 			this.dgvAgenda.Name = "dgvAgenda";
 			this.dgvAgenda.ReadOnly = true;
 			this.dgvAgenda.Size = new System.Drawing.Size(543, 147);
-			this.dgvAgenda.TabIndex = 29;
+			this.dgvAgenda.TabIndex = 35;
 			this.dgvAgenda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_CellContentClick);
 			// 
 			// txtEmail
@@ -83,7 +83,8 @@
 			this.txtEmail.Location = new System.Drawing.Point(131, 217);
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(428, 20);
-			this.txtEmail.TabIndex = 28;
+			this.txtEmail.TabIndex = 25;
+			this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
 			// 
 			// label7
 			// 
@@ -96,15 +97,6 @@
 			this.label7.TabIndex = 27;
 			this.label7.Text = "Email";
 			// 
-			// txtCelular
-			// 
-			this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.txtCelular.Location = new System.Drawing.Point(131, 179);
-			this.txtCelular.MaxLength = 11;
-			this.txtCelular.Name = "txtCelular";
-			this.txtCelular.Size = new System.Drawing.Size(235, 20);
-			this.txtCelular.TabIndex = 24;
-			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
@@ -112,9 +104,9 @@
 			this.label5.ForeColor = System.Drawing.Color.Black;
 			this.label5.Location = new System.Drawing.Point(19, 182);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(46, 13);
+			this.label5.Size = new System.Drawing.Size(57, 13);
 			this.label5.TabIndex = 23;
-			this.label5.Text = "Celular";
+			this.label5.Text = "Telefone";
 			// 
 			// txtEndereco
 			// 
@@ -249,7 +241,7 @@
 			this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.textBox3.Location = new System.Drawing.Point(137, 191);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(235, 13);
+			this.textBox3.Size = new System.Drawing.Size(100, 13);
 			this.textBox3.TabIndex = 24;
 			// 
 			// textBox5
@@ -268,16 +260,26 @@
 			this.btnContato.Location = new System.Drawing.Point(484, 179);
 			this.btnContato.Name = "btnContato";
 			this.btnContato.Size = new System.Drawing.Size(75, 23);
-			this.btnContato.TabIndex = 35;
+			this.btnContato.TabIndex = 24;
 			this.btnContato.Text = "WhatsApp";
 			this.btnContato.UseVisualStyleBackColor = true;
 			this.btnContato.Click += new System.EventHandler(this.btnContato_Click);
+			// 
+			// msktxtCelular
+			// 
+			this.msktxtCelular.Location = new System.Drawing.Point(131, 179);
+			this.msktxtCelular.Mask = "(00) 00000-0000";
+			this.msktxtCelular.Name = "msktxtCelular";
+			this.msktxtCelular.Size = new System.Drawing.Size(100, 20);
+			this.msktxtCelular.TabIndex = 23;
+			this.msktxtCelular.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(583, 488);
+			this.Controls.Add(this.msktxtCelular);
 			this.Controls.Add(this.btnContato);
 			this.Controls.Add(this.btnSair);
 			this.Controls.Add(this.btnLimpar);
@@ -287,7 +289,6 @@
 			this.Controls.Add(this.dgvAgenda);
 			this.Controls.Add(this.txtEmail);
 			this.Controls.Add(this.label7);
-			this.Controls.Add(this.txtCelular);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.txtEndereco);
 			this.Controls.Add(this.label4);
@@ -313,7 +314,6 @@
 		private System.Windows.Forms.DataGridView dgvAgenda;
 		private System.Windows.Forms.TextBox txtEmail;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.TextBox txtCelular;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox txtEndereco;
 		private System.Windows.Forms.Label label4;
@@ -329,6 +329,7 @@
 		private System.Windows.Forms.TextBox textBox3;
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.Button btnContato;
+		private System.Windows.Forms.MaskedTextBox msktxtCelular;
 	}
 }
 

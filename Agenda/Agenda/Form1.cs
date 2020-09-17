@@ -52,7 +52,7 @@ namespace Agenda
 		{
 			txtNome.Text = "";
 			txtEndereco.Text = "";
-			txtCelular.Text = "";
+			msktxtCelular.Text = "";
 			txtEmail.Text = "";
 			ID = 0;
 		}
@@ -62,7 +62,7 @@ namespace Agenda
 		{
 			txtNome.Text = "";
 			txtEndereco.Text = "";
-			txtCelular.Text = "";
+			msktxtCelular.Text = "";
 			txtEmail.Text = "";
 			txtNome.Focus();
 		}
@@ -71,7 +71,7 @@ namespace Agenda
 		{
 			DAO dao = new DAO();
 
-			if (txtNome.Text != "" && txtEndereco.Text != "" && txtCelular.Text != "" && txtEmail.Text != "")
+			if (txtNome.Text != "" && txtEndereco.Text != "" && msktxtCelular.Text != "" && txtEmail.Text != "")
 			{
 				try
 				{
@@ -79,7 +79,7 @@ namespace Agenda
 					{
 						Nome = txtNome.Text.Trim().ToUpper(),
 						Endereço = txtEndereco.Text.Trim().ToUpper(),
-						Celular = txtCelular.Text.Trim().ToUpper(),
+						Celular = msktxtCelular.Text.Trim().ToUpper(),
 						Email = txtEmail.Text.Trim().ToLower()
 					};
 
@@ -108,7 +108,7 @@ namespace Agenda
 		{
 			DAO dao = new DAO();
 
-			if (txtNome.Text != "" && txtEndereco.Text != "" && txtCelular.Text != "" && txtEmail.Text != "")
+			if (txtNome.Text != "" && txtEndereco.Text != "" && msktxtCelular.Text != "" && txtEmail.Text != "")
 			{
 				try
 				{
@@ -117,7 +117,7 @@ namespace Agenda
 						IdContato = ID,
 						Nome = txtNome.Text.Trim().ToUpper(),
 						Endereço = txtEndereco.Text.Trim().ToUpper(),
-						Celular = txtCelular.Text.Trim().ToUpper(),
+						Celular = msktxtCelular.Text.Trim().ToUpper(),
 						Email = txtEmail.Text.Trim().ToLower()
 					};
 
@@ -193,7 +193,7 @@ namespace Agenda
 				ID = Convert.ToInt32(dgvAgenda.Rows[e.RowIndex].Cells[0].Value.ToString());
 				txtNome.Text = dgvAgenda.Rows[e.RowIndex].Cells[1].Value.ToString();
 				txtEndereco.Text = dgvAgenda.Rows[e.RowIndex].Cells[2].Value.ToString();
-				txtCelular.Text = dgvAgenda.Rows[e.RowIndex].Cells[3].Value.ToString();
+				msktxtCelular.Text = dgvAgenda.Rows[e.RowIndex].Cells[3].Value.ToString();
 				txtEmail.Text = dgvAgenda.Rows[e.RowIndex].Cells[4].Value.ToString();
 			}
 			catch { }
@@ -201,11 +201,13 @@ namespace Agenda
 
 		private void btnContato_Click(object sender, EventArgs e)
 		{
-			string strUrl; 
+			string strUrl;
 
-			if (txtCelular.Text != "" && txtCelular.Text.Trim().Length == 11)
+			string teste = msktxtCelular.Text;
+
+			if (msktxtCelular.Text != "" && msktxtCelular.Text.Trim().Length == 11)
 			{
-				strUrl = "http://api.whatsapp.com/send?1=pt_BR&phone=55" + txtCelular.Text;
+				strUrl = "http://api.whatsapp.com/send?1=pt_BR&phone=55" + msktxtCelular.Text;
 
 				Process proc = new Process();
 				ProcessStartInfo startInfo = new ProcessStartInfo(strUrl);
@@ -215,6 +217,16 @@ namespace Agenda
 			else
 			{
 				MessageBox.Show("Formato de telefone não aceito");
+			}
+		}
+
+		private void txtEmail_Leave(object sender, EventArgs e)
+		{
+			if ((txtNome.Text != "" &&	txtEndereco.Text != "" && msktxtCelular.Text != "") && !txtEmail.Text.Contains('@') && !(txtEmail.Text.EndsWith(".com") || txtEmail.Text.EndsWith(".com.br")))
+			{
+				MessageBox.Show("O e-mail inserido é inválido");
+				txtEmail.Text = "";
+				txtEmail.Focus();
 			}
 		}
 	}
