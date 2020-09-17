@@ -219,8 +219,10 @@
 			// 
 			// textBox1
 			// 
+			this.textBox1.AcceptsTab = true;
 			this.textBox1.BackColor = System.Drawing.SystemColors.ButtonShadow;
 			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox1.Enabled = false;
 			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.textBox1.Location = new System.Drawing.Point(137, 75);
 			this.textBox1.Name = "textBox1";
@@ -231,6 +233,7 @@
 			// 
 			this.textBox2.BackColor = System.Drawing.SystemColors.ButtonShadow;
 			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox2.Enabled = false;
 			this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.textBox2.Location = new System.Drawing.Point(137, 117);
 			this.textBox2.Multiline = true;
@@ -242,6 +245,7 @@
 			// 
 			this.textBox3.BackColor = System.Drawing.SystemColors.ButtonShadow;
 			this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox3.Enabled = false;
 			this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.textBox3.Location = new System.Drawing.Point(137, 191);
 			this.textBox3.Name = "textBox3";
@@ -252,6 +256,7 @@
 			// 
 			this.textBox5.BackColor = System.Drawing.SystemColors.ButtonShadow;
 			this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox5.Enabled = false;
 			this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.textBox5.Location = new System.Drawing.Point(137, 229);
 			this.textBox5.Name = "textBox5";
@@ -260,7 +265,7 @@
 			// 
 			// btnContato
 			// 
-			this.btnContato.Location = new System.Drawing.Point(484, 182);
+			this.btnContato.Location = new System.Drawing.Point(484, 179);
 			this.btnContato.Name = "btnContato";
 			this.btnContato.Size = new System.Drawing.Size(75, 23);
 			this.btnContato.TabIndex = 35;
